@@ -1,49 +1,73 @@
 BoxLayout:
-    cols: 1
+    orientation:'vertical'
+    size: (200, 400)
     GridLayout:
         cols: 1
-        Label:
-            text:'Tela que o usuário vai ver'
+        TextInput:
+            id: operacao
 
     GridLayout:
+        padding: [2,2,2,2]
+
         cols: 4
         Button:
             text: '1/x'
+            background_color: [1,1,1,0.3]
         Button:
             text: 'x**2'
+            background_color: [1,1,1,0.3]
         Button:
             text: '2vx'
+            background_color: [1,1,1,0.3]
         Button:
             text: '/'
+            background_color: [1,1,1,0.3]
         Button:
             text: '7'
+            background_color: [0,0,0,1]
         Button:
             text: '8'
+            background_color: [0,0,0,1]
         Button:
             text: '9'
+            background_color: [0,0,0,1]
         Button:
+            id: x
             text: 'X'
+            background_color: [1,1,1,0.3]
         Button:
             text: '4'
+            background_color: [0,0,0,0.9]
         Button:
             text: '5'
+            background_color: [0,0,0,0.9]
         Button:
             text: '6'
+            background_color: [0,0,0,0.9]
         Button:
             text: '-'
+            background_color: [1,1,1,0.3]
         Button:
             text: '1'
+            background_color: [0,0,0,0.9]
         Button:
             text: '2'
+            background_color: [0,0,0,0.9]
         Button:
             text: '3'
+            background_color: [0,0,0,0.9]
         Button:
             text: '+'
+            background_color: [1,1,1,0.3]
         Button:
             text: '+/-'
+            background_color: [0,0,0,0.9]
         Button:
             text: '0'
+            background_color: [0,0,0,0.9]
         Button:
             text: ','
+            background_color: [0,0,0,0.9]
         Button:
             text: '='
+            background_color: [1,1,1,0.3]
