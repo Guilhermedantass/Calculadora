@@ -2,14 +2,44 @@ BoxLayout:
     orientation:'vertical'
     size: (200, 400)
     GridLayout:
+        size_hint: (1, 0.5)
         cols: 1
-        TextInput:
+        Label:
             id: operacao
+            halign: 'right'
+            readonly : True
+            text: ''
+            foreground_color: [255,255,255, 1]
+            background_color: [0,0,0,0]
+            font_size: 20
+
+
+        TextInput:
+            id: input
+            multiline:False
+            padding_x: [(self.width-6) - (self._get_text_width((self.text*2), self.tab_width, self._label_cached)) / 2.0, 0]
+            font_size: 50
+            foreground_color: [255,255,255, 1]
+            background_color: [0,0,0,0]
+            input_filter: 'float'
+
 
     GridLayout:
         padding: [2,2,2,2]
-
+        size: (200, 300)
         cols: 4
+        Button:
+            text: '%'
+            background_color: [1,1,1,0.3]
+        Button:
+            text: 'CE'
+            background_color: [1,1,1,0.3]
+        Button:
+            text: 'C'
+            background_color: [1,1,1,0.3]
+        Button:
+            text: '<'
+            background_color: [1,1,1,0.3]
         Button:
             text: '1/x'
             background_color: [1,1,1,0.3]
@@ -20,6 +50,7 @@ BoxLayout:
             text: '2vx'
             background_color: [1,1,1,0.3]
         Button:
+            id: divisao
             text: '/'
             background_color: [1,1,1,0.3]
         Button:
@@ -32,7 +63,7 @@ BoxLayout:
             text: '9'
             background_color: [0,0,0,1]
         Button:
-            id: x
+            id: multiplicacao
             text: 'X'
             background_color: [1,1,1,0.3]
         Button:
@@ -45,6 +76,7 @@ BoxLayout:
             text: '6'
             background_color: [0,0,0,0.9]
         Button:
+            id: subtracao
             text: '-'
             background_color: [1,1,1,0.3]
         Button:
@@ -57,6 +89,7 @@ BoxLayout:
             text: '3'
             background_color: [0,0,0,0.9]
         Button:
+            id: soma
             text: '+'
             background_color: [1,1,1,0.3]
         Button:
@@ -69,5 +102,7 @@ BoxLayout:
             text: ','
             background_color: [0,0,0,0.9]
         Button:
+            id: resultado
             text: '='
             background_color: [1,1,1,0.3]
+
