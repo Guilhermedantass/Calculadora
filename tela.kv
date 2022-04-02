@@ -1,6 +1,7 @@
 BoxLayout:
     orientation:'vertical'
     size: (200, 400)
+
     GridLayout:
         size_hint: (1, 0.5)
         cols: 1
@@ -10,9 +11,7 @@ BoxLayout:
             readonly : True
             text: ''
             foreground_color: [255,255,255, 1]
-            background_color: [0,0,0,0]
             font_size: 20
-
 
         TextInput:
             id: input
@@ -20,7 +19,7 @@ BoxLayout:
             padding_x: [(self.width-6) - (self._get_text_width((self.text*2), self.tab_width, self._label_cached)) / 2.0, 0]
             font_size: 50
             foreground_color: [255,255,255, 1]
-            background_color: [0,0,0,0]
+            background_color: [0,0,0,0.3]
             input_filter: 'float'
 
 
@@ -44,13 +43,16 @@ BoxLayout:
             text: '<'
             background_color: [1,1,1,0.3]
         Button:
-            text: '1/x'
+            id: umSobreX
+            font_size: 12
+            text: ' 1\n----\n X'
             background_color: [1,1,1,0.3]
         Button:
-            text: 'x**2'
+            id: elevacaopor2
+            text: 'X²'
             background_color: [1,1,1,0.3]
         Button:
-            text: '2vx'
+            text: '√x'
             background_color: [1,1,1,0.3]
         Button:
             id: divisao

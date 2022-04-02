@@ -13,11 +13,13 @@ GUI = Builder.load_file('tela.kv')
 
 
 class MinhaCalculadora(App):
-    def build(self):
-        return GUI
-
 
     OPERECAO = ''
+    NUMBER_ONE = ''
+    NUMBER_TWO=''
+
+    def build(self):
+        return GUI
 
     def soma(self):
         MinhaCalculadora.NUMBER_ONE = GUI.ids['input'].text
@@ -43,28 +45,45 @@ class MinhaCalculadora(App):
         GUI.ids['operacao'].text = f'{MinhaCalculadora.NUMBER_ONE} /'
         MinhaCalculadora.OPERECAO = 'DIVISAO'
 
+    def elevacao_por2(self):
+        numero = float(GUI.ids['input'].text)**2
+        GUI.ids['input'].text = f'{numero}'
+
+    def umSobreX(self):
+        numero = 1/float(GUI.ids['input'].text)
+        GUI.ids['input'].text = f'{numero}'
+
     def resultado(self):
         MinhaCalculadora.NUMBER_TWO = GUI.ids['input'].text
+
         if MinhaCalculadora.OPERECAO == 'SOMA':
             MinhaCalculadora.resultado = float(MinhaCalculadora.NUMBER_ONE) + float(MinhaCalculadora.NUMBER_TWO)
             MinhaCalculadora.NUMBER_ONE = MinhaCalculadora.resultado
             GUI.ids['operacao'].text = f'{MinhaCalculadora.NUMBER_ONE} +'
             GUI.ids['input'].text = f'{MinhaCalculadora.resultado}'
+
         elif MinhaCalculadora.OPERECAO == 'SUBTRAÇÃO':
             MinhaCalculadora.resultado = float(MinhaCalculadora.NUMBER_ONE) - float(MinhaCalculadora.NUMBER_TWO)
             MinhaCalculadora.NUMBER_ONE = MinhaCalculadora.resultado
             GUI.ids['operacao'].text = f'{MinhaCalculadora.NUMBER_ONE} -'
             GUI.ids['input'].text = f'{MinhaCalculadora.resultado}'
+
         elif MinhaCalculadora.OPERECAO == 'MULTIPLICAÇÃO':
             MinhaCalculadora.resultado = float(MinhaCalculadora.NUMBER_ONE) * float(MinhaCalculadora.NUMBER_TWO)
             MinhaCalculadora.NUMBER_ONE = MinhaCalculadora.resultado
             GUI.ids['operacao'].text = f'{MinhaCalculadora.NUMBER_ONE} *'
             GUI.ids['input'].text = f'{MinhaCalculadora.resultado}'
+
         elif MinhaCalculadora.OPERECAO == 'DIVISAO':
-            MinhaCalculadora.resultado = float(MinhaCalculadora.NUMBER_ONE) / float(MinhaCalculadora.NUMBER_TWO)
-            MinhaCalculadora.NUMBER_ONE = MinhaCalculadora.resultado
-            GUI.ids['operacao'].text = f'{MinhaCalculadora.NUMBER_ONE} /'
-            GUI.ids['input'].text = f'{MinhaCalculadora.resultado}'
+            try:
+                MinhaCalculadora.resultado = float(MinhaCalculadora.NUMBER_ONE) / float(MinhaCalculadora.NUMBER_TWO)
+                MinhaCalculadora.NUMBER_ONE = MinhaCalculadora.resultado
+                GUI.ids['operacao'].text = f'{MinhaCalculadora.NUMBER_ONE} /'
+                GUI.ids['input'].text = f'{MinhaCalculadora.resultado}'
+            except:
+                GUI.ids['operacao'].text = f'Error'
+                GUI.ids['input'].text = f''
+
         else:
             pass
 
@@ -95,8 +114,11 @@ class MinhaCalculadora(App):
     def nove(self):
         GUI.ids['input'].text += f'9'
 
-    def zero(self, numero):
-        GUI.ids['input'].text += f'{numero}'
+    def zero(self, numero=None):
+        if numero:
+            GUI.ids['input'].text += f'{numero}'
+        else:
+            GUI.ids['input'].text += f'0'
 
     def ce(self):
         GUI.ids['input'].text = ''
@@ -130,6 +152,8 @@ class MinhaCalculadora(App):
     GUI.ids['subtracao'].bind(on_press=subtracao)
     GUI.ids['soma'].bind(on_press=soma)
     GUI.ids['resultado'].bind(on_press=resultado)
+    GUI.ids['elevacaopor2'].bind(on_press=elevacao_por2)
+    GUI.ids['umSobreX'].bind(on_press=umSobreX)
     GUI.ids['ce'].bind(on_press=ce)
     GUI.ids['c'].bind(on_press=c)
     GUI.ids['1'].bind(on_press=um)
