@@ -68,6 +68,36 @@ class MinhaCalculadora(App):
         else:
             pass
 
+    def um(self):
+        GUI.ids['input'].text += f'1'
+
+    def dois(self):
+        GUI.ids['input'].text += f'2'
+
+    def tres(self):
+        GUI.ids['input'].text += f'3'
+
+    def quatro(self):
+        GUI.ids['input'].text += f'4'
+
+    def cinco(self):
+        GUI.ids['input'].text += f'5'
+
+    def seis(self):
+        GUI.ids['input'].text += f'6'
+
+    def sete(self):
+        GUI.ids['input'].text += f'7'
+
+    def oito(self):
+        GUI.ids['input'].text += f'8'
+
+    def nove(self):
+        GUI.ids['input'].text += f'9'
+
+    def zero(self, numero):
+        GUI.ids['input'].text += f'{numero}'
+
     def ce(self):
         GUI.ids['input'].text = ''
 
@@ -76,14 +106,6 @@ class MinhaCalculadora(App):
         GUI.ids['input'].text = ''
         GUI.ids['operacao'].text = ''
         MinhaCalculadora.OPERECAO = ''
-
-    GUI.ids['divisao'].bind(on_press=divisao)
-    GUI.ids['multiplicacao'].bind(on_press=multiplicacao)
-    GUI.ids['subtracao'].bind(on_press=subtracao)
-    GUI.ids['soma'].bind(on_press=soma)
-    GUI.ids['resultado'].bind(on_press=resultado)
-    GUI.ids['ce'].bind(on_press=ce)
-    GUI.ids['c'].bind(on_press=c)
 
     def _keyboard_closed(self):
         self._keyboard.unbind(on_key_down=self._on_keyboard_down)
@@ -102,6 +124,24 @@ class MinhaCalculadora(App):
         elif keycode[1] == 'enter' or keycode[1] == 'numpadenter':
             self.subtracao()
         return True
+
+    GUI.ids['divisao'].bind(on_press=divisao)
+    GUI.ids['multiplicacao'].bind(on_press=multiplicacao)
+    GUI.ids['subtracao'].bind(on_press=subtracao)
+    GUI.ids['soma'].bind(on_press=soma)
+    GUI.ids['resultado'].bind(on_press=resultado)
+    GUI.ids['ce'].bind(on_press=ce)
+    GUI.ids['c'].bind(on_press=c)
+    GUI.ids['1'].bind(on_press=um)
+    GUI.ids['2'].bind(on_press=dois)
+    GUI.ids['3'].bind(on_press=tres)
+    GUI.ids['4'].bind(on_press=quatro)
+    GUI.ids['5'].bind(on_press=cinco)
+    GUI.ids['6'].bind(on_press=seis)
+    GUI.ids['7'].bind(on_press=sete)
+    GUI.ids['8'].bind(on_press=oito)
+    GUI.ids['9'].bind(on_press=nove)
+    GUI.ids['0'].bind(on_press=zero(numero='0'))
 
 
 if __name__ == '__main__':
