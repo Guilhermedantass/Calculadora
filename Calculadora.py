@@ -141,7 +141,7 @@ class MinhaCalculadora(App):
     GUI.ids['7'].bind(on_press=sete)
     GUI.ids['8'].bind(on_press=oito)
     GUI.ids['9'].bind(on_press=nove)
-    GUI.ids['0'].bind(on_press=zero(numero='0'))
+    GUI.ids['0'].bind(on_press=zero)
 
 
 if __name__ == '__main__':
