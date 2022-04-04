@@ -1,4 +1,4 @@
-# Calculadora com Python
+# Calculadora em Python
 
 Nesse projeto eu faço uma calculadora em python, utilizando a biblioteca de interface grafica Kivy.
 
