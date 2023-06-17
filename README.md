@@ -41,6 +41,3 @@ Antes de executar a aplicação, certifique-se de ter os seguintes pré-requisit
 
 Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests com melhorias, correções de bugs ou novas funcionalidades.
 
-## Licença
-
-Este projeto está licenciado sob a MIT License.
